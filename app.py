@@ -1,5 +1,5 @@
 import streamlit as st
-from views import home
+from views import home, crawling, sentiment, demo
 
 st.set_page_config(
     page_title='Yasudahlah Team - IFest 2021 Unpad',
@@ -9,6 +9,10 @@ st.set_page_config(
 
 PAGES = {
     "🏠 Halaman Utama": home,
+    "⛏ Crawling Data": crawling,
+    "🧹 Preprocessing Data": crawling,
+    "💡 Hasil Analisis Sentimen": sentiment,
+    "🎯 Demo Analisis Sentimen": demo
 }
 
 st.sidebar.subheader('Navigasi')
