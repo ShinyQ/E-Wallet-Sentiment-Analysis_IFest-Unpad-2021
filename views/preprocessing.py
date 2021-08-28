@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from streamlit_embedcode import github_gist
 
+
 def app():
     st.markdown("# Proses Preprocessing")
     st.write("""
@@ -46,7 +47,7 @@ def app():
         <br>Adapun kode yang dibuat untuk proses tokenizing adalah sebagai berikut.<br>
     """, unsafe_allow_html=True)
 
-    github_gist("https://gist.github.com/ShinyQ/c62b36ecae197bca6ae1b42883ad76b4", height=450, width=900)
+    github_gist("https://gist.github.com/ShinyQ/5856725779e03bcb3e237759dedced57", height=450, width=900)
 
     st.write("### **3. Filtering**")
     st.write("""
@@ -71,7 +72,7 @@ def app():
         <br>Adapun kode yang dibuat untuk proses filtering adalah sebagai berikut.<br>
     """, unsafe_allow_html=True)
 
-    github_gist("https://gist.github.com/ShinyQ/bb0e4264604c6a852694fbdab4539508", height=450, width=900)
+    github_gist("https://gist.github.com/ShinyQ/5217973cef418106dd106ecd7616ee41", height=450, width=900)
 
     st.write("### **4. Stemming**")
     st.write("""
@@ -79,17 +80,17 @@ def app():
                 Stemming adalah proses menghilangkan infleksi kata ke bentuk dasarnya (tidak terdapat imbuhan pada kata). 
                 Misalnya kata “mendengarkan”, “dengarkan”, “didengarkan” akan ditransformasi menjadi kata “dengar”.
                 Pada analisis sentimen ini kami menggunakan library <a target="_blank" href="https://github.com/har07/PySastrawi">Python Sastrawi</a> 
-                untuk melakukan proses stemming setiap kata.
+                untuk melakukan proses stemming setiap kata. Adapun kode yang dibuat untuk proses filtering adalah sebagai berikut.
             </div>    
-
-            <br>Adapun kode yang dibuat untuk proses filtering adalah sebagai berikut.<br>
     """, unsafe_allow_html=True)
 
     github_gist("https://gist.github.com/ShinyQ/67b2f82d77afe4ad106654c7679c8eca", height=220, width=900)
 
     st.write("### **Keseluruhan Kode Data Preprocessing**")
-    github_gist("https://gist.github.com/ShinyQ/a859db53010c886745bd290ba91e1e1b", height=450, width=900)
+    github_gist("https://gist.github.com/ShinyQ/44ef7916e1aaa75c6350b21505dd90d4", height=450, width=900)
 
-    st.write("### **Contoh Hasil Proses Pre Processing**")
+    st.write("<br>", unsafe_allow_html=True)
+    st.write("### **Contoh Hasil Proses Preprocessing**")
+
     data = pd.read_csv("./dataset/processed/ovo.csv").sample(8)
     st.table(data)

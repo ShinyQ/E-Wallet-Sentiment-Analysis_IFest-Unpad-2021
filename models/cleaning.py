@@ -1,70 +1,56 @@
 import pandas as pd
 import re
 import string
-import streamlit as st
+
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 
 factory = StemmerFactory()
 stemmer = factory.create_stemmer()
 
-kamus_alay = pd.read_csv('./dataset/processed/Kamu-Alay.csv')
-kamus_alay = kamus_alay.set_index('kataAlay')
-kamusAlay = pd.read_csv('./dataset/processed/colloquial-indonesian-lexicon.csv')
-stopWord = list(pd.read_csv('./dataset/processed/stopwords_id_satya.txt', header = None)[0])
+kamus_alay1 = pd.read_csv('./dataset/processed/Kamu-Alay.csv')
+kamus_alay1 = kamus_alay1.set_index('kataAlay')
 
-def DataCleaning(text):
-    text_temp = CleanText(text)
-    st.write(text_temp)
-    text_temp = ApplyKamusAlayStopTranslate(text_temp)
-    st.write(text_temp)
-    text_temp = Stemming(text_temp)
-    st.write(text_temp)
+kamus_alay2 = pd.read_csv('./dataset/processed/colloquial-indonesian-lexicon.csv')
+kamus_alay2 = kamus_alay2.filter(['slang', 'formal'], axis=1)
+
+kamus_alay2 = kamus_alay2.drop_duplicates(subset=['slang'], keep='first')
+kamus_alay2 = kamus_alay2.set_index('slang')
+
+stopword1 = list(pd.read_csv('./dataset/processed/stopwords_id_satya.txt', header=None)[0])
+custom_word = ['nya', 'tolong', 'iya', 'guna', 'kasih', 'buka', 'hari', 'sih', 'mohon', 'baru']
+
 
 def CleanText(text):
+    temp_text_split = []
+
     text = re.sub(r'http\S+', '', text)
-    text = re.sub('(@\w+|#\w+)','',text)
+    text = re.sub('(@\w+|#\w+)', '', text)
     text = re.sub('<.*?>', '', text)
-    text = text.translate(str.maketrans(' ',' ',string.punctuation))
-    text = re.sub('[^a-zA-Z]',' ',text)
-    text = re.sub("\n"," ",text)
+    text = text.translate(str.maketrans(' ', ' ', string.punctuation))
+    text = re.sub('[^a-zA-Z]', ' ', text)
+    text = re.sub("\n", " ", text)
     text = text.lower()
-    text = re.sub("(username|user|url|rt|xf|fx|xe|xa)\s|\s(user|url|rt|xf|fx|xe|xa)","",text)
+    text = re.sub("(username|user|url|rt|xf|fx|xe|xa)\s|\s(user|url|rt|xf|fx|xe|xa)", "", text)
     text = re.sub(r'(\w)(\1{2,})', r"\1", text)
-    text = re.sub(r"\b[a-zA-Z]\b","",text)
-    text = re.sub('(s{2,})',' ',text)
+    text = re.sub(r"\b[a-zA-Z]\b", "", text)
+    text = re.sub('(s{2,})', ' ', text)
     text = ' '.join(text.split())
 
-    return text
+    text_split = text.split(' ')
 
-def ApplyKamusAlayStopTranslate(text):
-    text = text.split(' ')
-    temp = []
+    for i in range(len(text_split)):
+        if text_split[i] in kamus_alay1.index:
+            text_split[i] = kamus_alay1.loc[text_split[i]]['kataBaik']
+        elif text_split[i] in kamus_alay2.index:
+            text_split[i] = kamus_alay2.loc[text_split[i]]['formal']
 
-    for i in range(len(text)):
-        try:
-            text[i] = kamus[text[i]]
-        except:
-            pass
+    stemmer.stem(text)
 
-        try:
-            index = kamusAlay.index[kamusAlay['slang'] == text[i]][0]
-            text[i] = kamusAlay['formal'][index]
-        except:
-            pass
+    for i in range(len(text_split)):
+        if (text_split[i] not in stopword1) and (text_split[i] not in custom_word):
+            temp_text_split.append(text_split[i])
 
-        try:
-            text[i] = kamus_alay.loc[text[i]]['kataBaik']
-        except:
-            pass
+    final_text = ' '.join(temp_text_split)
 
-        try:
-            if (text[i] in stopWord):
-                text.remove(text[i])
-        except:
-            pass
+    return final_text
 
-    text = ' '.join(text)
-    return text
-
-def Stemming(text):
-    return stemmer.stem(text)

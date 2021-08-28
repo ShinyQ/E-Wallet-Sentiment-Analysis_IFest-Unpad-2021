@@ -1,5 +1,4 @@
 import streamlit as st
-from views import crawling
 
 
 def app():
@@ -79,4 +78,3 @@ def app():
                 ulasan pengguna e-wallet pada aplikasi ovo, dana, sakuku, dan linkaja.
             </div>
         """, unsafe_allow_html=True)
-

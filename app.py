@@ -11,7 +11,7 @@ PAGES = {
     "🏠 Halaman Utama": home,
     "⛏  Crawling Data": crawling,
     "🧹 Preprocessing Data": preprocessing,
-    "🔑 Topic Analisis Sentimen": topic,
+    "🔑 Klasifikasi Topik": topic,
     "💡 Hasil Analisis Sentimen": sentiment,
     "🎯 Demo Analisis Sentimen": demo
 }
