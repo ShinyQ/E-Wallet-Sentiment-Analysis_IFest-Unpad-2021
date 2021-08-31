@@ -92,5 +92,5 @@ def app():
     st.write("<br>", unsafe_allow_html=True)
     st.write("### **Contoh Hasil Proses Preprocessing**")
 
-    data = pd.read_csv("./dataset/processed/ovo.csv").sample(8)
+    data = pd.read_csv("dataset/processed/ovo.csv").sample(8)
     st.table(data)
