@@ -62,4 +62,6 @@ def app():
     st.markdown("### **2. Pembagian Klasifikasi Topik**")
     github_gist("https://gist.github.com/ShinyQ/67063ba772f91ad21ea88f4b85d282ac", height=360, width=900)
 
-    st.write(classifier.DataFrameClassifier('dataset/raw/ovo.csv', "comments"))
+    st.markdown("### **3. Contoh Hasil Pembagian Klasifikasi Topik**")
+    data = classifier.DataFrameClassifier('dataset/raw/ovo.csv', "comments").sample(8)
+    st.table(data)
