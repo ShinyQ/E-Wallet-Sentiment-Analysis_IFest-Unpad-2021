@@ -17,11 +17,19 @@ def app():
     st.markdown("## **Abstrak**")
     st.write("""
         <div style="text-align:justify; margin-bottom: 1%">
-            Data Analysis Competition merupakan cabang kompetisi IT Competition IFest 2021 berskala nasional. 
-            Kompetisi Analisis Data adalah kompetisi untuk menganalisis data untuk mendapatkan solusi dari suatu masalah. 
-            Tujuan dari kompetisi ini adalah untuk mendorong generasi milenial agar memiliki kemampuan analisa yang baik 
-            sehingga dapat menyelesaikan berbagai permasalahan yang ada di era digital. Kompetisi Analisis Data mengangkat 
-            tema <b>"Memanfaatkan Kekuatan Analisis Sentimen Terhadap Kemajuan Industri dan Bisnis Digital"</b>.
+            Kombinasi pendekatan deep learning dan pemrosesan bahasa alami diterapkan untuk menganalisis sentimen dari 
+            teks untuk kalimat tertentu. Era digital membuat banyak hal untuk beradaptasi karena cepat dan mudahnya 
+            informasi untuk didapatkan serta disebarluaskan. 
+            Proses transaksi keuangan merupakan hal yang sangat sering dijumpai, Bahkan saat ini transaksi 
+            keuangan sudah banyak dilakukan dengan teknologi yang sering disebut dengan dompet digital. 
+            Teknologi dompet digital juga didukung oleh budaya orang yang mulai menyukai pembayaran cashless 
+            sehingga banyak perusahaan yang menyediakan jasa tersebut seperti DANA, OVO, Link Aja dan Sakuku. 
+            Kualitas dari perusahaan dompet digital dinilai dari ulasan konsumen dan orang lain ingin mengerti 
+            dari ulasan satu orang. Pendapat konsumen ini diatur dengan cara yang terstruktur dan untuk memahami 
+            persepsi ulasan dan reaksi konsumen. Data ulasan konsumen kami dapatkan melalui review yang ada pada 
+            google play store. Kemudian membuat kumpulan data yang telah kami crawling dan melakukan pengolahan 
+            data terelebih dahulu. Dengan menggunakan, arsitektur CNN LSTM gabungan digunakan dalam dataset 
+            kami dan mendapatkan akurasi training sebesar 88% dan akurasi validasi sebesar 83%
         </div>
     """, unsafe_allow_html=True)
 
