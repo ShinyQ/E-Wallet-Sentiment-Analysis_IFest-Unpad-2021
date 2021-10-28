@@ -118,7 +118,7 @@ def app():
     st.write("""
          <div style="text-align:justify;">
             Setelah melakukan proses penentuan topik dan sub-topik untuk pengklasifikasian setiap macam masalah maka
-             langkah selanjutnya yang dilakukan adalah mengklasifikasikan setiap dataset kedalam topik yang telah ditentukan.
+             langkah selanjutnya yang dilakukan adalah mengklasifikasikan setiap dataset kedalam topik yang telah ditentukan. 
         </div>    
     """, unsafe_allow_html=True)
 

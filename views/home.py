@@ -56,25 +56,26 @@ def app():
         """, unsafe_allow_html=True)
 
         st.write("""
-            **3. Topic Classification**
+            **3. Aspect Classification**
             <div style="text-align:justify; margin-top:-2%; margin-bottom:5%">
-                Proses pengambilan data review pada google play store untuk mendapatkan
-                ulasan pengguna e-wallet pada aplikasi ovo, dana, sakuku, dan linkaja.
+                Menganalisis aspek-aspek penting pada sentimen untuk diklasifikasikan. Adapun beberapa
+                hal yang dilakukan untuk mendapatkan beberapa klasifikasi adalah dengan mengobservasi pada
+                kata terbanyak serta dengan membuat wordcloud. 
             </div>
         """, unsafe_allow_html=True)
 
         st.write("""
             **4. Sentiment Analysis Modelling**
             <div style="text-align:justify; margin-top:-2%; margin-bottom:5%">
-                Proses pengambilan data review pada google play store untuk mendapatkan
-                ulasan pengguna e-wallet pada aplikasi ovo, dana, sakuku, dan linkaja.
+                 Melakukan pemodelan untuk proses analisis sentimen yang akan dibuat menggunakan model CNN-LSTM dengan 
+                 menggunakan library Ternsorflow.
             </div>
         """, unsafe_allow_html=True)
 
         st.write("""
             **5. Sentiment Analysis Result**
             <div style="text-align:justify; margin-top:-2%; margin-bottom:5%">
-                Proses pengambilan data review pada google play store untuk mendapatkan
-                ulasan pengguna e-wallet pada aplikasi ovo, dana, sakuku, dan linkaja.
+                Mengklasifikasikan seluruh hasil sentimen dan memvisualisasikannya untuk mendapatkan insight 
+                pada setiap jenis e-wallet yang ditentukan dalam penelitian ini.
             </div>
         """, unsafe_allow_html=True)
