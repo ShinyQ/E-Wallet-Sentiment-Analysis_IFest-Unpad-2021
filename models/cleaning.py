@@ -24,13 +24,13 @@ def CleanText(text):
     temp_text_split = []
 
     text = re.sub(r'http\S+', '', text)
-    text = re.sub('(@\w+|#\w+)', '', text)
+    text = re.sub(r'(@\w+|#\w+)', '', text)
     text = re.sub('<.*?>', '', text)
     text = text.translate(str.maketrans(' ', ' ', string.punctuation))
     text = re.sub('[^a-zA-Z]', ' ', text)
     text = re.sub("\n", " ", text)
     text = text.lower()
-    text = re.sub("(username|user|url|rt|xf|fx|xe|xa)\s|\s(user|url|rt|xf|fx|xe|xa)", "", text)
+    text = re.sub(r"(username|user|url|rt|xf|fx|xe|xa)\s|\s(user|url|rt|xf|fx|xe|xa)", "", text)
     text = re.sub(r'(\w)(\1{2,})', r"\1", text)
     text = re.sub(r"\b[a-zA-Z]\b", "", text)
     text = re.sub('(s{2,})', ' ', text)

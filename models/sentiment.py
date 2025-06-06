@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 
-@st.cache
+@st.cache_data
 def processed_data():
     df_saku = pd.read_csv("./dataset/sentiment/sakuku.csv")
     df_ovo = pd.read_csv("./dataset/sentiment/ovo.csv")

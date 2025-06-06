@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 
-@st.cache
+@st.cache_data
 def raw_data():
     df_saku = pd.read_csv("./dataset/raw/sakuku.csv").head(10)
     df_ovo = pd.read_csv("./dataset/raw/ovo.csv").head(10)
